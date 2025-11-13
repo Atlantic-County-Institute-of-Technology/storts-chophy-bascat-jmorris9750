@@ -62,12 +62,14 @@ def main():
                 # finds whether each letter is chopy or storts
                 for g_digit in range(len(guess)):
                     for t_digit in range(len(target)):
+
                         if guess[g_digit] == target[t_digit]:
                             if g_digit == t_digit:
                                 response[g_digit] = "chopy"
 
                             else:
                                 response[g_digit] = "storts"
+
 
                 print(response)
             # ends game if word has not been solved
