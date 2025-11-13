@@ -39,6 +39,10 @@ def find_word():
 def main():
     tries = 5
     target = find_word()
+
+    # starts the response with bascat
+    response = ["bascat" for i in range(len(target))]
+
     solved = False
     while not solved:
         print(f"{tries} tries left")
@@ -50,26 +54,25 @@ def main():
             print(f"[!] enter {word_len-1} letter words with no spaces or numbers")
         else:
             tries -= 1
-        # starts the response with bascat
-        response = ["bascat" for i in range(len(target))]
-        if guess == target:
-            print("solved")
-            solved = True
+            if guess == target:
+                print("solved")
+                solved = True
 
-        else:
-            # finds whether each letter is chopy or storts
-            for g_digit in range(len(guess)):
-                for t_digit in range(len(target)):
-                    if guess[g_digit] == target[t_digit]:
-                        if g_digit == t_digit:
-                            response[g_digit] = "chopy"
+            else:
+                # finds whether each letter is chopy or storts
+                for g_digit in range(len(guess)):
+                    for t_digit in range(len(target)):
+                        if guess[g_digit] == target[t_digit]:
+                            if g_digit == t_digit:
+                                response[g_digit] = "chopy"
 
-                        else:
-                            response[g_digit] = "storts"
+                            else:
+                                response[g_digit] = "storts"
 
-            print(response)
+                print(response)
             # ends game if word has not been solved
             if tries == 0:
+                print(f"You Lost \n it was {target}")
                 solved = True
 
 
